@@ -1,24 +1,30 @@
 // 2-hbtn_course.js
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if (typeof name !== 'string') throw TypeError('Name must be a string');
-    if (typeof length !== 'number') throw TypeError('Length must be a number');
-    if (!Array.isArray(students) || students.some((s) => typeof s !== 'string')) { // Add parentheses around arrow function argument
-      throw TypeError('Students must be an array of strings');
+    if (typeof name !== 'string') {
+      throw new TypeError('name must be a string');
     }
-    this.name = name; // Remove underscore
-    this.length = length; // Remove underscore
-    this.students = students; // Remove underscore
+    if (typeof length !== 'number') {
+      throw new TypeError('length must be a number');
+    }
+    if (!Array.isArray(students) || students.some((student) => typeof student !== 'string')) {
+      throw new TypeError('students must be an array of strings');
+    }
+    this._name = name;
+    this._length = length;
+    this._students = students;
   }
 
   get name() {
-    return this.name; // Remove underscore
+    return this._name;
   }
 
   set name(newName) {
-    if (typeof newName !== 'string') throw TypeError('Name must be a string');
-    this.name = newName; // Remove underscore
+    if (typeof newName !== 'string') {
+      throw new TypeError('name must be a string');
+    }
+    this._name = newName;
   }
 
-  // Implement getters and setters for length and students similarly
+  // Similar getters and setters for length and students
 }

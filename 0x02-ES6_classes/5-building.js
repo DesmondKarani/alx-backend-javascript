@@ -1,9 +1,6 @@
-// Task 5: Building class
+// 5-building.js
 export default class Building {
   constructor(sqft) {
-    if (new.target === Building) {
-      throw new Error('Cannot instantiate abstract class');
-    }
     if (typeof sqft !== 'number') {
       throw new TypeError('sqft must be a number');
     }
@@ -14,8 +11,7 @@ export default class Building {
     return this._sqft;
   }
 
-  // This method should be overridden by subclasses
-  // eslint-disable-next-line class-methods-use-this
+  // Enforce implementing evacuationWarningMessage in subclasses
   evacuationWarningMessage() {
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }

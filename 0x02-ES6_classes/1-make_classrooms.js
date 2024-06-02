@@ -1,5 +1,5 @@
-// Task 1: initializeRooms function
-import ClassRoom from "./0-classroom.js";
+// 1-make_classrooms.js
+import ClassRoom from './0-classroom'; // Remove file extension and use single quotes
 
 export default function initializeRooms() {
   return [

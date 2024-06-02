@@ -1,6 +1,6 @@
-// Task 0: ClassRoom class
+// 0-classroom.js
 export default class ClassRoom {
   constructor(maxStudentsSize) {
-    this._maxStudentsSize = maxStudentsSize;
+    this.maxStudentsSize = maxStudentsSize; // Remove underscore
   }
 }

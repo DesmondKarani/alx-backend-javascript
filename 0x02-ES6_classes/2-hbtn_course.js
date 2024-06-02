@@ -1,18 +1,22 @@
-// 2-hbtn_course.js
-export default class HolbertonCourse {
-  constructor(name, length, students) {
-    if (typeof name !== 'string') {
-      throw new TypeError('name must be a string');
+// 3-currency.js
+export default class Currency {
+  constructor(code, name) {
+    if (typeof code !== 'string' || typeof name !== 'string') {
+      throw new TypeError('code and name must be strings');
     }
-    if (typeof length !== 'number') {
-      throw new TypeError('length must be a number');
-    }
-    if (!Array.isArray(students) || students.some((student) => typeof student !== 'string')) {
-      throw new TypeError('students must be an array of strings');
-    }
+    this._code = code;
     this._name = name;
-    this._length = length;
-    this._students = students;
+  }
+
+  get code() {
+    return this._code;
+  }
+
+  set code(newCode) {
+    if (typeof newCode !== 'string') {
+      throw new TypeError('code must be a string');
+    }
+    this._code = newCode;
   }
 
   get name() {
@@ -26,5 +30,7 @@ export default class HolbertonCourse {
     this._name = newName;
   }
 
-  // Similar getters and setters for length and students
+  displayFullCurrency() {
+    return `${this._name} (${this._code})`;
+  }
 }

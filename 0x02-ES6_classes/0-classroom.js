@@ -1,6 +1,9 @@
 // 0-classroom.js
 export default class ClassRoom {
   constructor(maxStudentsSize) {
-    this.maxStudentsSize = maxStudentsSize; // Remove underscore
+    if (typeof maxStudentsSize !== 'number') {
+      throw new TypeError('maxStudentsSize must be a number');
+    }
+    this._maxStudentsSize = maxStudentsSize;
   }
 }

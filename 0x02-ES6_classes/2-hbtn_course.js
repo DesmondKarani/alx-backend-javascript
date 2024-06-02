@@ -1,22 +1,19 @@
-// 3-currency.js
-export default class Currency {
-  constructor(code, name) {
-    if (typeof code !== 'string' || typeof name !== 'string') {
-      throw new TypeError('code and name must be strings');
+// 2-hbtn_course.js
+
+export default class HolbertonCourse {
+  constructor(name, length, students) {
+    if (typeof name !== 'string') {
+      throw new TypeError('name must be a string');
     }
-    this._code = code;
+    if (typeof length !== 'number') {
+      throw new TypeError('length must be a number');
+    }
+    if (!Array.isArray(students) || students.some((student) => typeof student !== 'string')) {
+      throw new TypeError('students must be an array of strings');
+    }
     this._name = name;
-  }
-
-  get code() {
-    return this._code;
-  }
-
-  set code(newCode) {
-    if (typeof newCode !== 'string') {
-      throw new TypeError('code must be a string');
-    }
-    this._code = newCode;
+    this._length = length;
+    this._students = students;
   }
 
   get name() {
@@ -30,7 +27,25 @@ export default class Currency {
     this._name = newName;
   }
 
-  displayFullCurrency() {
-    return `${this._name} (${this._code})`;
+  get length() {
+    return this._length;
+  }
+
+  set length(newLength) {
+    if (typeof newLength !== 'number') {
+      throw new TypeError('length must be a number');
+    }
+    this._length = newLength;
+  }
+
+  get students() {
+    return this._students;
+  }
+
+  set students(newStudents) {
+    if (!Array.isArray(newStudents) || newStudents.some((student) => typeof student !== 'string')) {
+      throw new TypeError('students must be an array of strings');
+    }
+    this._students = newStudents;
   }
 }

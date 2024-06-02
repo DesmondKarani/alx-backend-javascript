@@ -1,4 +1,4 @@
-import { uploadPhoto, createUser } from './utils.js';
+import { uploadPhoto, createUser } from './utils';
 
 async function asyncUploadUser(uploadPhotoFunc = uploadPhoto, createUserFunc = createUser) {
   try {
@@ -12,7 +12,7 @@ async function asyncUploadUser(uploadPhotoFunc = uploadPhoto, createUserFunc = c
     return { photo: photoResponse, user: userResponse };
   } catch (error) {
     // Handle errors from either function
-    console.error("Error uploading user:", error);
+    console.error('Error uploading user:', error);
     // Return empty object on failure
     return { photo: null, user: null };
   }

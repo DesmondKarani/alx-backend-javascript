@@ -1,9 +1,12 @@
 // 8-clean_set.js
 
 function cleanSet(set, startString) {
-  return Array.from(set)
-    .filter((value) => value.startsWith(startString))
-    .map((value) => value.slice(startString.length))
+  if (typeof startString !== 'string' || startString === '') {
+    return '';
+  }
+
+  return [...set].filter((item) => item.startsWith(startString))
+    .map((item) => item.slice(startString.length))
     .join('-');
 }
 

@@ -5,9 +5,13 @@ function cleanSet(set, startString) {
     return '';
   }
 
-  return [...set].filter((item) => item.startsWith(startString))
-    .map((item) => item.slice(startString.length))
-    .join('-');
+  let result = '';
+  for (const item of set) {
+    if (typeof item === 'string' && item.startsWith(startString)) {
+      result += `${result === '' ? '' : '-'}${item.slice(startString.length)}`;
+    }
+  }
+  return result;
 }
 
 export default cleanSet;

@@ -1,16 +1,14 @@
 const weakMap = new WeakMap();
 
 function queryAPI(endpoint) {
-  const endpointKey = endpoint;
-  if (!weakMap.has(endpointKey)) {
-    weakMap.set(endpointKey, 1);
-  } else {
-    const count = weakMap.get(endpointKey);
-    if (count >= 5) {
-      throw new Error('Endpoint load is high');
-    }
-    weakMap.set(endpointKey, count + 1);
+  let count = weakMap.get(endpoint) || 0;
+  count += 1;
+
+  if (count >= 5) {
+    throw new Error('Endpoint load is high');
   }
+
+  weakMap.set(endpoint, count);
 }
 
-export { weakMap, queryAPI };
+export { queryAPI, weakMap };

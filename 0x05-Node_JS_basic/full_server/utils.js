@@ -3,11 +3,11 @@ import fs from 'fs/promises';
 const readDatabase = async (filePath) => {
   try {
     const data = await fs.readFile(filePath, 'utf8');
-    const lines = data.split('\n').filter(line => line.trim() !== '');
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
     const students = lines.slice(1);
 
     const fields = {};
-    students.forEach(student => {
+    students.forEach((student) => {
       const [firstName, , , field] = student.split(',');
       if (!fields[field]) {
         fields[field] = [];
